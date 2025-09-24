@@ -23,13 +23,11 @@ class MainActivity : AppCompatActivity() {
     private val apiResponseView: TextView by lazy {
         findViewById(R.id.api_response)
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getCatImageResponse()
     }
-
     private fun getCatImageResponse() {
         val call = catApiService.searchImages(1, "full")
         call.enqueue(object : Callback<String> {
